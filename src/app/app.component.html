@@ -1,336 +1,1034 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-   </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            href="{{ item.link }}"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+<div class="min-h-screen bg-slate-900 text-white p-8 font-sans">
+  <div class="max-w-3xl mx-auto">
+    
+    <div *ngIf="!usuarioActivo" class="flex flex-col items-center justify-center min-h-[80vh] text-center">
+      
+      <div *ngIf="cargandoSesion" class="flex flex-col items-center justify-center min-h-[20vh] transition-all duration-300">
+        <h1 class="text-6xl animate-bounce mb-4">⛩️</h1>
+        <div class="w-12 h-12 border-4 border-sky-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        <p class="text-slate-500 mt-4 text-sm font-mono tracking-widest uppercase">Validando credenciales...</p>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://twitter.com/angular"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="20"
-            viewBox="0 0 25 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Twitter"
-          >
-            <path
-              d="M8.04524 20C17.3335 20 22.4138 12.3047 22.4138 5.63144C22.4138 5.41287 22.4138 5.19529 22.399 4.97869C23.3874 4.26381 24.2405 3.37867 24.9185 2.3647C23.9969 2.77329 23.0192 3.04112 22.018 3.15923C23.0723 2.52818 23.8613 1.53552 24.2382 0.366057C23.2469 0.954335 22.1624 1.36889 21.0315 1.59182C20.2701 0.782212 19.2631 0.246107 18.1663 0.0664704C17.0695 -0.113166 15.9441 0.0736804 14.9642 0.598096C13.9843 1.12251 13.2046 1.95526 12.7457 2.96748C12.2868 3.9797 12.1742 5.11495 12.4255 6.19756C10.4178 6.09685 8.45366 5.57507 6.66064 4.66609C4.86763 3.75712 3.28579 2.48127 2.01781 0.921344C1.37203 2.03306 1.17424 3.34911 1.46472 4.60154C1.75519 5.85397 2.51208 6.9486 3.58128 7.66257C2.77759 7.63903 1.9914 7.42221 1.28924 7.03049V7.09449C1.28956 8.26041 1.69316 9.39034 2.4316 10.2926C3.17003 11.1949 4.19783 11.8139 5.34067 12.0448C4.59721 12.2476 3.81715 12.2772 3.06045 12.1315C3.38327 13.1348 4.01156 14.0122 4.85746 14.641C5.70337 15.2698 6.72461 15.6185 7.77842 15.6384C6.73139 16.4614 5.53237 17.0699 4.24995 17.4291C2.96753 17.7882 1.62687 17.891 0.304688 17.7316C2.61411 19.2136 5.30121 19.9997 8.04524 19.9961"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+
+      <div *ngIf="!cargandoSesion" class="bg-slate-800 p-8 rounded-2xl shadow-2xl w-full max-w-md border border-slate-700 relative overflow-hidden transition-all duration-500 animate-fade-in">
+        
+        <h1 class="text-5xl font-bold text-sky-400 mb-2">⛩️</h1>
+        <h1 class="text-3xl font-bold text-white mb-2">Flashcards Nihongo</h1>
+        <p class="text-slate-400 mb-6 text-sm">Identifícate para cargar tu progreso</p>
+
+        <p *ngIf="mensajeError" class="text-red-400 text-sm font-bold mb-4 animate-pulse">{{ mensajeError }}</p>
+        <p *ngIf="mensajeExito" class="text-green-400 text-sm font-bold mb-4 animate-pulse">{{ mensajeExito }}</p>
+
+        <div *ngIf="vistaActual === 'login'" class="transition-opacity duration-300">
+          <input [(ngModel)]="inputUsuario" type="text" placeholder="Tu alias (ej. Paul)" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-4 text-lg text-center focus:ring-2 focus:ring-sky-500 outline-none mb-4 transition-all">
+          <input [(ngModel)]="inputPassword" (keyup.enter)="iniciarSesion()" type="password" placeholder="Contraseña" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-4 text-lg text-center focus:ring-2 focus:ring-sky-500 outline-none mb-2 transition-all">
+          
+          <div class="flex justify-end mb-6">
+            <span (click)="cambiarVista('recuperacion')" class="text-sky-400 hover:text-sky-300 text-xs cursor-pointer transition-colors">¿Olvidaste tu contraseña?</span>
+          </div>
+
+          <button (click)="iniciarSesion()" [disabled]="cargandoAuth" class="w-full bg-sky-600 hover:bg-sky-500 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg transition-all shadow-lg text-lg mb-4 flex justify-center items-center gap-2">
+            <div *ngIf="cargandoAuth" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            {{ cargandoAuth ? 'Entrando...' : 'Entrar' }}
+          </button>
+          <p class="text-slate-400 text-sm">¿No tienes cuenta? <span (click)="cambiarVista('registro')" class="text-sky-400 cursor-pointer hover:underline font-bold">Regístrate aquí</span></p>
+        </div>
+
+        <div *ngIf="vistaActual === 'registro'" class="transition-opacity duration-300">
+          <input [(ngModel)]="inputUsuario" type="text" placeholder="Crea un alias (ej. PaulQ)" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-center focus:ring-2 focus:ring-sky-500 outline-none mb-3 transition-all">
+          <input [(ngModel)]="inputEmail" type="email" placeholder="Tu correo electrónico" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-center focus:ring-2 focus:ring-sky-500 outline-none mb-3 transition-all">
+          <input [(ngModel)]="inputPassword" (keyup.enter)="registrarse()" type="password" placeholder="Crea una contraseña" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-center focus:ring-2 focus:ring-sky-500 outline-none mb-6 transition-all">
+          
+          <button (click)="registrarse()" [disabled]="cargandoAuth" class="w-full bg-slate-700 hover:bg-slate-600 disabled:bg-slate-800 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg transition-all shadow-lg text-lg mb-4 border border-slate-600 flex justify-center items-center gap-2">
+            <div *ngIf="cargandoAuth" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              {{ cargandoAuth ? 'Creando cuenta...' : 'Crear Cuenta' }}
+            </button>
+          <p class="text-slate-400 text-sm">¿Ya tienes cuenta? <span (click)="cambiarVista('login')" class="text-sky-400 cursor-pointer hover:underline font-bold">Inicia Sesión</span></p>
+        </div>
+
+        <div *ngIf="vistaActual === 'verificacion'" class="transition-opacity duration-300">
+          <p class="text-slate-300 text-sm mb-4">Ingresa el código de 6 dígitos que enviamos a tu correo para activar el alias <span class="text-white font-bold">{{inputUsuario}}</span>.</p>
+          <input [(ngModel)]="inputCodigo" (keyup.enter)="verificarCuenta()" type="text" placeholder="0 0 0 0 0 0" maxlength="6" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-4 text-3xl font-mono tracking-widest text-center focus:ring-2 focus:ring-sky-500 outline-none mb-6 text-sky-400 transition-all">
+          
+          <button (click)="verificarCuenta()" [disabled]="cargandoAuth" class="w-full bg-green-600 hover:bg-green-500 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg transition-all shadow-lg text-lg mb-4 flex justify-center items-center gap-2">
+            <div *ngIf="cargandoAuth" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              {{ cargandoAuth ? 'Verificando...' : 'Verificar Código' }}
+            </button>
+          <p class="text-slate-400 text-sm"><span (click)="cambiarVista('login')" class="text-sky-400 cursor-pointer hover:underline font-bold">← Volver al Login</span></p>
+        </div>
+
+        <div *ngIf="vistaActual === 'recuperacion'" class="transition-opacity duration-300">
+          <p class="text-slate-300 text-sm mb-4">Ingresa tu Alias y te enviaremos un código de un solo uso para restablecer tu acceso.</p>
+          <input [(ngModel)]="inputResetUsuario" type="text" placeholder="Tu alias (ej. Paul)" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-4 text-lg text-center focus:ring-2 focus:ring-sky-500 outline-none mb-6 transition-all">
+          
+          <button (click)="pedirRecuperacion()" [disabled]="cargandoAuth" class="w-full bg-amber-600 hover:bg-amber-500 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg transition-all shadow-lg text-lg mb-4 flex justify-center items-center gap-2">
+            <div *ngIf="cargandoAuth" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            {{ cargandoAuth ? 'Enviando correo...' : 'Enviar código de rescate' }}
+          </button>
+          <p class="text-slate-400 text-sm"><span (click)="cambiarVista('login')" class="text-sky-400 cursor-pointer hover:underline font-bold">← Volver al Login</span></p>
+        </div>
+
+        <div *ngIf="vistaActual === 'resetear'" class="transition-opacity duration-300">
+          <p class="text-slate-300 text-sm mb-4">Revisa tu correo. Tienes <span class="text-amber-400 font-bold">15 minutos</span> para usar el código.</p>
+          
+          <input [(ngModel)]="inputResetUsuario" type="text" placeholder="Alias" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-center outline-none mb-3 opacity-70" readonly>
+          <input [(ngModel)]="inputResetCodigo" type="text" placeholder="Código de 6 dígitos" maxlength="6" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-2xl font-mono tracking-widest text-center focus:ring-2 focus:ring-amber-500 outline-none mb-3 text-amber-400 transition-all">
+          <input [(ngModel)]="inputResetPassword" (keyup.enter)="aplicarNuevaPassword()" type="password" placeholder="Tu nueva contraseña" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-center focus:ring-2 focus:ring-amber-500 outline-none mb-6 transition-all">
+          
+          <button (click)="aplicarNuevaPassword()" [disabled]="cargandoAuth" class="w-full bg-green-600 hover:bg-green-500 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg transition-all shadow-lg text-lg mb-4 flex justify-center items-center gap-2">
+            <div *ngIf="cargandoAuth" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            {{ cargandoAuth ? 'Restaurando...' : 'Restaurar y Desbloquear' }}
+          </button>
+          <p class="text-slate-400 text-sm"><span (click)="cambiarVista('login')" class="text-sky-400 cursor-pointer hover:underline font-bold">← Cancelar y volver</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="usuarioActivo && !cargandoSesion" class="w-full transition-all duration-500 animate-fade-in">
+      
+      <header class="text-center mb-8 pt-2">
+        
+        <div class="flex flex-wrap justify-center sm:justify-end gap-2 items-center mb-6 w-full">
+          
+          <div class="flex items-center gap-1.5 bg-orange-950/40 border border-orange-900/50 text-orange-400 px-3 py-1.5 rounded-lg shadow-sm font-bold animate-fade-in" title="Días seguidos estudiando">
+            <span class="text-lg">🔥</span>
+            <span>{{ rachaActual }}</span>
+          </div>
+
+          <button *ngIf="!mostrandoPerfil && !mostrandoBiblioteca" (click)="abrirBiblioteca()" class="text-slate-400 hover:text-sky-400 text-sm transition-colors border border-slate-700 hover:border-sky-400 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+            📚 <span class="hidden sm:inline">Mi Biblioteca</span>
+          </button>
+          
+          <button *ngIf="!mostrandoPerfil && !mostrandoBiblioteca" (click)="abrirPerfil()" class="text-slate-400 hover:text-sky-400 text-sm transition-colors border border-slate-700 hover:border-sky-400 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+            ⚙️ <span class="hidden sm:inline">Mi Perfil</span>
+          </button>
+          
+          <button *ngIf="mostrandoPerfil || mostrandoBiblioteca" (click)="volverAlPanelPrincipal()" class="text-slate-400 hover:text-sky-400 text-sm transition-colors border border-slate-700 hover:border-sky-400 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+            ← <span class="hidden sm:inline">Volver</span>
+          </button>
+          
+          <button (click)="cerrarSesion()" class="text-slate-400 hover:text-red-400 text-sm transition-colors border border-slate-700 hover:border-red-400 px-3 py-1.5 rounded-lg">
+            Salir
+          </button>
+        </div>
+
+        <h1 *ngIf="!jugandoArcade" class="text-4xl font-bold text-sky-400 mb-2">Analizador de Japonés</h1>
+        <p *ngIf="!jugandoArcade" class="text-slate-400">Extrae vocabulario para tus flashcards usando IA</p>
+      </header>
+
+      <div *ngIf="!mostrandoPerfil && !mostrandoBiblioteca" class="animate-fade-in">
+        
+        <div *ngIf="transicionando" class="fixed inset-0 z-[100] bg-slate-900/90 backdrop-blur-sm flex flex-col items-center justify-center animate-fade-in">
+          <div class="w-16 h-16 border-4 border-sky-500 border-t-transparent rounded-full animate-spin mb-6 shadow-lg shadow-sky-500/20"></div>
+          <p class="text-sky-400 font-bold tracking-widest uppercase text-sm animate-pulse">{{ mensajeTransicion }}</p>
+        </div>
+
+        <div *ngIf="!jugandoArcade && !mostrandoGenerador" class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+          <div>
+            <h2 class="text-2xl font-bold text-white">¡Hola, {{ usuarioActivo }}! 👋</h2>
+            <p class="text-slate-400 text-sm">
+              {{ palabras.length > 0 ? 'Tienes repasos pendientes para hoy.' : 'Vamos a aprender algo nuevo.' }}
+            </p>
+          </div>
+          
+          <button (click)="abrirGenerador()" 
+                  class="bg-sky-600 hover:bg-sky-500 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg flex items-center gap-2 border border-sky-400/30">
+            <span class="text-xl">➕</span>
+            Extraer Vocabulario
+          </button>
+        </div>
+
+        <div *ngIf="mostrandoGenerador" class="animate-fade-in max-w-4xl mx-auto">
+          
+          <button (click)="cerrarGenerador()" class="mb-6 text-slate-400 hover:text-white transition-colors text-sm font-bold bg-slate-800 px-4 py-2 rounded-lg border border-slate-700 flex items-center gap-2">
+            ← Volver al Panel
+          </button>
+
+          <div class="bg-slate-800 p-8 rounded-2xl shadow-2xl mb-8 border border-slate-700">
+            
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+              <div>
+                <h3 class="text-2xl font-bold text-sky-400 flex items-center gap-2">✨ Generador con IA</h3>
+                <p class="text-slate-400 text-sm mt-1">
+                  {{ idiomaEntrada === 'ja' ? 'Pega texto en japonés para extraer conceptos.' : 'Escribe en español y la IA lo traducirá y extraerá.' }}
+                </p>
+              </div>
+
+              <div class="flex gap-1 bg-slate-900 p-1.5 rounded-lg border border-slate-700">
+                <button (click)="idiomaEntrada = 'ja'" 
+                        [ngClass]="idiomaEntrada === 'ja' ? 'bg-sky-600 text-white shadow-md' : 'text-slate-400 hover:text-white'"
+                        class="px-5 py-2 rounded-md text-sm font-bold transition-all flex items-center gap-2">
+                  🇯🇵 Japonés
+                </button>
+                <button (click)="idiomaEntrada = 'es'" 
+                        [ngClass]="idiomaEntrada === 'es' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-400 hover:text-white'"
+                        class="px-5 py-2 rounded-md text-sm font-bold transition-all flex items-center gap-2">
+                  🇲🇽 Español
+                </button>
+              </div>
+            </div>
+            
+            <textarea [(ngModel)]="textoEntrada" 
+                      [placeholder]="idiomaEntrada === 'ja' ? 'Ej: 今日はラーメンを食べたいです...' : 'Ej: Hoy tengo muchas ganas de comer ramen...'" 
+                      class="w-full bg-slate-900/80 border border-slate-600 rounded-xl p-5 text-lg focus:ring-2 focus:ring-sky-500 h-48 resize-none outline-none transition-all text-white placeholder-slate-500 shadow-inner">
+            </textarea>
+            
+            <button (click)="procesarTexto()" [disabled]="cargando" class="w-full mt-6 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 disabled:from-slate-700 disabled:to-slate-700 disabled:cursor-not-allowed text-white font-black py-4 rounded-xl transition-all shadow-lg flex justify-center items-center gap-3 text-lg">
+              <div *ngIf="cargando" class="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+              {{ cargando ? 'Analizando con IA en curso...' : 'Extraer y Generar Tarjetas' }}
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="palabras.length === 0 && !cargando && !mostrandoGenerador && !jugandoArcade">
+          
+          <div *ngIf="bibliotecaCompleta.length === 0" class="bg-slate-800/50 border-2 border-dashed border-slate-700 p-12 rounded-3xl text-center mb-8 animate-fade-in">
+            <div class="text-6xl mb-4 opacity-20">📖</div>
+            <h3 class="text-xl font-bold text-slate-300 mb-2">No hay nada que estudiar todavía</h3>
+            <p class="text-slate-500 max-w-sm mx-auto mb-6">
+              Para comenzar, haz clic en <span class="text-sky-400 font-bold">Extraer Vocabulario</span> y pega cualquier texto en japonés que quieras aprender.
+            </p>
+          </div>
+
+          <div *ngIf="bibliotecaCompleta.length > 0" class="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 text-center mb-8 animate-fade-in relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-9xl opacity-5">🏆</div>
+            <h3 class="text-3xl font-black text-white mb-2">¡Todo al día! 🎉</h3>
+            <p class="text-slate-400 mb-6">Has terminado todos tus repasos programados para hoy.</p>
+            <div class="flex justify-center gap-4">
+              <button (click)="abrirBiblioteca()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-6 rounded-lg transition-all shadow-md border border-slate-600">
+                📚 Ver mi Colección
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div *ngIf="palabras.length > 0 && !jugandoArcade && !repasoActivo && !mostrandoGenerador" class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-800 p-6 rounded-xl shadow-md border border-slate-700 mb-6">
+          <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-4xl">🏆</span>
+              <div>
+                <p class="text-slate-400 text-xs font-bold uppercase tracking-wider">Progreso Global</p>
+                <p class="text-white font-bold text-xl">Tarjetas Dominadas</p>
+              </div>
+            </div>
+            <p class="text-5xl font-black text-sky-400 mt-2">
+              {{ tarjetasDominadas }} <span class="text-2xl text-slate-500">/ {{ palabras.length }}</span>
+            </p>
+            <p class="text-slate-400 text-sm mt-4">Sigue calificando tus flashcards para ver cómo se llena tu gráfica de conocimiento.</p>
+          </div>
+
+          <div class="flex justify-center items-center h-48 w-full">
+            <canvas baseChart
+              [data]="doughnutChartData"
+              [type]="doughnutChartType"
+              [options]="chartOptions">
+            </canvas>
+          </div>
+        </div>
+
+        <div *ngIf="palabras.length > 0 && !jugandoArcade && !repasoActivo && !mostrandoGenerador" class="animate-fade-in">
+          
+          <div class="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 border border-slate-700 p-8 rounded-3xl shadow-2xl text-center relative overflow-hidden mb-8 transform transition-all hover:shadow-sky-900/20">
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <h3 class="text-sm font-black text-sky-400 mb-1 uppercase tracking-widest relative z-10">Tu Misión de Hoy</h3>
+            <p class="text-slate-300 mb-8 relative z-10 text-lg">
+              Tienes <span class="text-white bg-sky-600/30 px-3 py-1 rounded-lg font-bold text-2xl mx-1">{{ palabras.length }}</span> flashcards esperando.
+            </p>
+            
+            <button (click)="comenzarRepasoDiarioWrapper()" class="relative z-10 w-full sm:w-auto bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-black text-xl md:text-2xl py-5 px-12 rounded-2xl transition-all shadow-[0_0_40px_-10px_rgba(14,165,233,0.5)] active:scale-95 flex flex-col items-center justify-center gap-1 mx-auto">
+              <span>¡Comenzar Repaso! 🚀</span>
+              <span class="text-xs font-normal text-sky-200 opacity-80 uppercase tracking-widest">Entrenamiento IA</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            
+            <button (click)="abrirGenerador()" class="group bg-slate-800/80 p-5 rounded-2xl border border-slate-700 hover:border-sky-500 hover:bg-slate-800 transition-all shadow-lg text-left relative overflow-hidden active:scale-95">
+              <div class="absolute top-0 right-0 w-16 h-16 bg-sky-500/5 rounded-bl-full pointer-events-none"></div>
+              <div class="text-3xl mb-2 group-hover:scale-110 transition-transform origin-left">📥</div>
+              <h4 class="text-sky-400 font-bold text-lg leading-tight">Extraer</h4>
+              <p class="text-slate-400 text-[10px] mt-1 leading-tight">Generar desde texto</p>
+            </button>
+            
+            <button (click)="iniciarArcadeWrapper()" class="group bg-slate-800/80 p-5 rounded-2xl border border-slate-700 hover:border-purple-500 hover:bg-slate-800 transition-all shadow-lg text-left relative overflow-hidden active:scale-95">
+              <div class="absolute top-0 right-0 w-16 h-16 bg-purple-500/5 rounded-bl-full pointer-events-none"></div>
+              <div class="text-3xl mb-2 group-hover:scale-110 transition-transform origin-left">🕹️</div>
+              <h4 class="text-purple-400 font-bold text-lg leading-tight">Arcade</h4>
+              <p class="text-slate-400 text-[10px] mt-1 leading-tight">Minijuegos IA</p>
+            </button>
+
+          </div>
+        </div>
+        
+        <div *ngIf="jugandoArcade" class="animate-fade-in bg-slate-800 p-6 md:p-10 rounded-3xl shadow-2xl border-2 border-purple-500/30 mb-8 relative overflow-hidden">
+          
+          <div class="absolute -top-20 -left-20 w-40 h-40 bg-purple-600/20 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-indigo-600/20 rounded-full blur-3xl"></div>
+
+          <div *ngIf="modoArcadeActual === 'menu'" class="relative z-10 animate-fade-in py-8">
+            
+            <button (click)="salirArcade()" class="absolute -top-4 left-0 text-slate-400 hover:text-white flex items-center gap-2 z-20">
+               ← Salir del Arcade
+            </button>
+
+            <div class="text-center mb-10 mt-6">
+              <h3 class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 mb-2">Arcade Nihongo</h3>
+              <p class="text-slate-400">Elige tu método de entrenamiento</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              
+              <button (click)="seleccionarMinijuego('memory')" class="bg-slate-900/50 border border-slate-700 hover:border-purple-500 rounded-2xl p-6 text-left transition-all hover:scale-105 hover:bg-slate-800 shadow-lg group">
+                <div class="text-5xl mb-4 group-hover:animate-bounce">⏱️</div>
+                <h4 class="text-2xl font-bold text-white mb-2">Time Attack</h4>
+                <p class="text-slate-400 text-sm">Empareja el kanji con su significado antes de que el reloj llegue a cero.</p>
+              </button>
+
+              <button (click)="seleccionarMinijuego('constructor')" class="bg-slate-900/50 border border-slate-700 hover:border-emerald-500 rounded-2xl p-6 text-left transition-all hover:scale-105 hover:bg-slate-800 shadow-lg group relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-widest">Nuevo</div>
+                <div class="text-5xl mb-4 group-hover:animate-bounce">🧩</div>
+                <h4 class="text-2xl font-bold text-white mb-2">Constructor</h4>
+                <p class="text-slate-400 text-sm">Ordena los bloques o escribe en Romaji.</p>
+              </button>
+              
+              <button (click)="iniciarSurvival()" class="bg-slate-900/50 border border-slate-700 hover:border-red-500 rounded-2xl p-6 text-left transition-all hover:scale-105 hover:bg-slate-800 shadow-lg group relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-widest">Brutal</div>
+                <div class="text-5xl mb-4 group-hover:animate-bounce">💀</div>
+                <h4 class="text-2xl font-bold text-white mb-2">El Desafío</h4>
+                <p class="text-slate-400 text-sm">Adivina la palabra en la oración. 10 rondas. 0 errores.</p>
+              </button>
+
+            </div>
+          </div>
+
+          <div *ngIf="modoArcadeActual === 'memory'">
+            
+            <div *ngIf="!juegoActivo" class="relative z-10 text-center py-8 animate-fade-in">
+                <button (click)="volverAlMenuArcade()" class="absolute -top-4 left-0 text-slate-400 hover:text-white flex items-center gap-2 z-20">
+                  ← Volver al Menú
+                </button>
+
+                <h3 class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 mb-4 mt-4">Time Attack</h3>
+                <p class="text-xl text-white font-bold mb-6">¿Listo para poner a prueba tu memoria?</p>
+                
+                <div class="bg-slate-900/50 border border-purple-500/30 rounded-2xl p-6 max-w-md mx-auto mb-8 text-left shadow-inner">
+                   <h4 class="text-purple-400 font-bold mb-3 uppercase tracking-widest text-sm border-b border-purple-900/50 pb-2">Reglas de Supervivencia</h4>
+                   <ul class="text-slate-300 text-sm space-y-3">
+                     <li class="flex gap-2"><span>⏱️</span> <span>Tienes <span class="text-white font-bold">60 segundos</span> de reloj base.</span></li>
+                     <li class="flex gap-2"><span>🔥</span> <span>Cada acierto consecutivo multiplica tus puntos.</span></li>
+                     <li class="flex gap-2"><span>❌</span> <span>Un error rompe tu combo y te resta 50 puntos.</span></li>
+                     <li class="flex gap-2"><span>⚡</span> <span>Limpia el tablero para subir de ronda y ganar <span class="text-green-400 font-bold">+10 segundos</span>.</span></li>
+                   </ul>
+                </div>
+  
+                <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+                  <button (click)="volverAlMenuArcade()" class="px-6 py-3 rounded-xl font-bold transition-all border border-slate-600 text-slate-300 hover:bg-slate-700 w-full sm:w-auto">
+                    Volver
+                  </button>
+                  <button (click)="comenzarPartida()" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white px-10 py-3 rounded-xl font-black text-xl transition-all shadow-lg shadow-emerald-900/50 hover:scale-105 active:scale-95 animate-pulse hover:animate-none w-full sm:w-auto">
+                    ¡JUGAR!
+                  </button>
+                </div>
+            </div>
+  
+            <div *ngIf="juegoActivo" class="animate-fade-in relative z-10">
+              
+              <div class="flex flex-col md:flex-row justify-between items-center mb-8 relative z-10 border-b border-slate-700 pb-4 gap-4">
+                
+                <div class="text-center md:text-left">
+                  <h3 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Time Attack</h3>
+                  <p class="text-slate-400 text-sm mt-1">Ronda <span class="font-bold text-sky-400">{{ rondaArcade }}</span></p>
+                </div>
+    
+                <div class="flex gap-3 sm:gap-6 items-center bg-slate-900/50 p-2 sm:p-3 rounded-2xl border border-slate-700">
+                  <div class="text-center px-2">
+                    <p class="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">Puntos</p>
+                    <p class="text-xl sm:text-2xl font-black text-white">{{ puntosArcade }}</p>
+                  </div>
+                  <div class="text-center px-2 border-l border-slate-700">
+                    <p class="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">Combo</p>
+                    <p class="text-xl sm:text-2xl font-black transition-colors" [ngClass]="comboArcade >= 3 ? 'text-orange-400 animate-pulse' : 'text-sky-400'">x{{ comboArcade }}</p>
+                  </div>
+                  <div class="text-center px-4 py-1 rounded-xl border-2 transition-all duration-300" [ngClass]="tiempoArcade <= 10 ? 'border-red-500 bg-red-950/40 animate-pulse' : 'border-slate-600 bg-slate-800'">
+                    <p class="text-[10px] sm:text-xs text-slate-400 font-bold uppercase tracking-wider">Tiempo</p>
+                    <p class="text-xl sm:text-3xl font-mono font-black" [ngClass]="tiempoArcade <= 10 ? 'text-red-400' : 'text-green-400'">{{ tiempoArcade }}s</p>
+                  </div>
+                </div>
+    
+                <button (click)="volverAlMenuArcade()" class="bg-slate-900 hover:bg-slate-700 text-slate-300 transition-colors border border-slate-700 px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 h-fit">
+                  ✕ <span class="hidden md:inline">Abandonar</span>
+                </button>
+              </div>
+    
+              <div *ngIf="!juegoTerminado" class="grid grid-cols-2 gap-4 md:gap-8 relative z-10 animate-fade-in">
+                
+                <div class="flex flex-col gap-3">
+                  <button *ngFor="let t of tarjetasArcadeJa"
+                          (click)="seleccionarTarjetaArcade(t, 'ja')"
+                          [disabled]="t.resuelta"
+                          class="relative p-4 md:p-5 rounded-2xl border-2 transition-all duration-300 font-bold text-xl md:text-2xl shadow-lg flex items-center justify-center min-h-[5rem]"
+                          [ngClass]="{
+                            'border-slate-600 bg-slate-900 text-white hover:border-purple-400 hover:bg-slate-800': !t.resuelta && seleccionArcadeJa !== t && !t.error,
+                            'border-purple-400 bg-purple-900/60 text-white scale-[1.02] shadow-purple-900/50': seleccionArcadeJa === t && !t.resuelta && !t.error,
+                            'border-green-500 bg-green-900/20 text-green-500 opacity-0 pointer-events-none scale-95': t.resuelta,
+                            'border-red-500 bg-red-900/40 text-red-200 animate-pulse': t.error
+                          }">
+                    <ruby>
+                      {{ t.texto }}
+                      <rt class="text-xs text-purple-300">{{ t.furigana }}</rt>
+                    </ruby>
+                  </button>
+                </div>
+    
+                <div class="flex flex-col gap-3">
+                  <button *ngFor="let t of tarjetasArcadeEs"
+                          (click)="seleccionarTarjetaArcade(t, 'es')"
+                          [disabled]="t.resuelta"
+                          class="relative p-4 md:p-5 rounded-2xl border-2 transition-all duration-300 font-bold text-base md:text-lg shadow-lg flex items-center justify-center text-center min-h-[5rem]"
+                          [ngClass]="{
+                            'border-slate-600 bg-slate-900 text-slate-300 hover:border-indigo-400 hover:bg-slate-800': !t.resuelta && seleccionArcadeEs !== t && !t.error,
+                            'border-indigo-400 bg-indigo-900/60 text-white scale-[1.02] shadow-indigo-900/50': seleccionArcadeEs === t && !t.resuelta && !t.error,
+                            'border-green-500 bg-green-900/20 text-green-500 opacity-0 pointer-events-none scale-95': t.resuelta,
+                            'border-red-500 bg-red-900/40 text-red-200 animate-pulse': t.error
+                          }">
+                    {{ t.texto }}
+                  </button>
+                </div>
+              </div>
+    
+              <div *ngIf="juegoTerminado" class="absolute inset-0 z-20 bg-slate-900/95 backdrop-blur-md flex flex-col items-center justify-center animate-fade-in rounded-3xl p-6 text-center">
+                <div class="text-6xl mb-2 animate-bounce">⏳</div>
+                <h4 class="text-5xl font-black text-white mb-2">¡Tiempo Agotado!</h4>
+                
+                <div class="bg-slate-800 border border-purple-500/50 rounded-2xl p-6 md:p-8 my-6 w-full max-w-sm shadow-2xl shadow-purple-900/20">
+                  <p class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-1">Puntuación Final</p>
+                  <p class="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 mb-6">{{ puntosArcade }}</p>
+                  
+                  <div class="flex justify-between border-t border-slate-700 pt-4 px-2">
+                    <div class="text-left">
+                      <p class="text-slate-500 text-xs font-bold uppercase">Rondas</p>
+                      <p class="text-2xl font-bold text-sky-400">{{ rondaArcade - 1 }}</p>
+                    </div>
+                    <div class="text-right">
+                      <p class="text-slate-500 text-xs font-bold uppercase">Aciertos</p>
+                      <p class="text-2xl font-bold text-green-400">{{ ((rondaArcade - 1) * 6) + paresCompletados }}</p>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="flex gap-4">
+                  <button (click)="volverAlMenuArcade()" class="px-6 py-4 rounded-xl font-bold transition-all border border-slate-600 text-slate-300 hover:bg-slate-700">
+                    Menú
+                  </button>
+                  <button (click)="comenzarPartida()" class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-8 py-4 rounded-xl font-black transition-all shadow-lg shadow-purple-900/50 scale-110 hover:scale-105 active:scale-95 flex items-center gap-3">
+                      <span class="text-xl">↻</span> Jugar de nuevo
+                  </button>
+                </div>
+              </div>
+  
+            </div> 
+          </div>
+
+          <div *ngIf="modoArcadeActual === 'constructor'" class="relative z-10 animate-fade-in">
+            
+            <button *ngIf="!juegoActivo" (click)="volverAlMenuArcade()" class="absolute -top-4 left-0 text-slate-400 hover:text-white flex items-center gap-2 z-20">
+               ← Volver al Menú
+            </button>
+
+            <div *ngIf="!juegoActivo" class="text-center py-8">
+              <h3 class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mb-4 mt-8">Constructor</h3>
+              <p class="text-xl text-white font-bold mb-6">Reconstruye la gramática japonesa.</p>
+
+              <div class="bg-slate-900/50 border border-emerald-500/30 rounded-2xl p-6 max-w-md mx-auto mb-8 text-left shadow-inner animate-fade-in">
+                 <h4 class="text-emerald-400 font-bold mb-3 uppercase tracking-widest text-sm border-b border-emerald-900/50 pb-2">Cómo Jugar</h4>
+                 <ul class="text-slate-300 text-sm space-y-3 mb-4">
+                   <li class="flex gap-2 items-start"><span class="mt-0.5">👀</span> <span><strong>Lee</strong> la oración en español.</span></li>
+                   <li class="flex gap-2 items-start"><span class="mt-0.5">🧩</span> <span><strong>Ordena:</strong> Toca los bloques para armar la oración en japonés.</span></li>
+                   <li class="flex gap-2 items-start"><span class="mt-0.5">⌨️</span> <span><strong>Escribe:</strong> ¿Prefieres un reto mayor? Cambia al modo <strong>Romaji</strong> y escribe la lectura con tu teclado.</span></li>
+                   <li class="flex gap-2 items-start"><span class="mt-0.5">💯</span> <span>Acierto: <span class="text-green-400 font-bold">+100 pts</span> | Error: <span class="text-red-400 font-bold">-20 pts</span>.</span></li>
+                 </ul>
+                 
+                 <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 mt-5">
+                   <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-2">Ejemplo de solución:</p>
+                   <p class="text-sm text-sky-300 font-bold mb-3">"Quiero agua"</p>
+                   
+                   <div class="space-y-3">
+                     <div class="flex items-center gap-2">
+                       <span class="text-[10px] text-slate-500 w-12">Bloques:</span>
+                       <span class="bg-white text-slate-900 font-bold px-2 py-1 rounded text-xs">水</span>
+                       <span class="bg-white text-slate-900 font-bold px-2 py-1 rounded text-xs">が</span>
+                       <span class="bg-white text-slate-900 font-bold px-2 py-1 rounded text-xs">欲しい</span>
+                     </div>
+                     <div class="flex items-center gap-2">
+                       <span class="text-[10px] text-slate-500 w-12">Romaji:</span>
+                       <span class="text-emerald-400 font-mono text-xs italic">mizu ga hoshii</span>
+                     </div>
+                   </div>
+                 </div>
+              </div>
+              
+              <button (click)="iniciarConstructor()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-10 py-3 rounded-xl font-black text-xl transition-all shadow-lg shadow-emerald-900/50 hover:scale-105 active:scale-95 animate-pulse hover:animate-none">
+                ¡Empezar a Construir!
+              </button>
+            </div>
+
+            <div *ngIf="juegoActivo" class="max-w-2xl mx-auto py-4">
+              
+              <div class="flex flex-col sm:flex-row justify-between items-center mb-8 border-b border-slate-700 pb-4 gap-4">
+                
+                <div class="bg-slate-900/50 px-6 py-2 rounded-xl border border-emerald-900/50 flex flex-col items-center sm:items-start shadow-inner">
+                  <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Puntuación</p>
+                  <p class="text-3xl font-black text-emerald-400">{{ puntosConstructor }}</p>
+                </div>
+                
+                <div class="bg-slate-900 rounded-lg p-1 border border-slate-700 flex shadow-lg">
+                  <button (click)="modoConstructorActual = 'bloques'" [ngClass]="modoConstructorActual === 'bloques' ? 'bg-emerald-600 text-white' : 'text-slate-400 hover:text-white'" class="px-5 py-2 rounded text-sm font-bold transition-colors">Bloques</button>
+                  <button (click)="modoConstructorActual = 'romaji'" [ngClass]="modoConstructorActual === 'romaji' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'" class="px-5 py-2 rounded text-sm font-bold transition-colors">Romaji</button>
+                </div>
+
+                <button (click)="volverAlMenuArcade()" class="text-slate-400 hover:text-white text-sm bg-slate-900 px-4 py-2 rounded-lg border border-slate-700 transition-colors">
+                  ✕ Abandonar
+                </button>
+              </div>
+
+              <div *ngIf="cargandoOracionArcade" class="flex flex-col items-center justify-center py-16 animate-fade-in bg-slate-800/50 rounded-3xl border border-slate-700">
+                <div class="text-5xl mb-6 animate-bounce">🤖</div>
+                <div class="w-12 h-12 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mb-4 shadow-lg shadow-emerald-500/20"></div>
+                <p class="text-emerald-400 font-bold text-xl animate-pulse mb-2">Creando reto gramatical...</p>
+                <p class="text-slate-500 text-sm">Gemini está analizando tu vocabulario en tiempo real</p>
+              </div>
+
+              <div *ngIf="!cargandoOracionArcade" class="animate-fade-in">
+                
+                <div class="bg-slate-900 border border-slate-700 p-6 rounded-2xl text-center mb-8 shadow-inner relative group">
+                  <p class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">Traduce esta oración</p>
+                  <p class="text-2xl text-sky-300 font-bold mb-2">"{{ constructorTraduccion }}"</p>
+                  
+                  <p *ngIf="mostrandoPistaArcade" class="text-emerald-400 font-mono text-sm animate-fade-in bg-slate-800 inline-block px-3 py-1 rounded-lg">
+                    {{ constructorRomajiOriginal }}
+                  </p>
+
+                  <button *ngIf="!mostrandoPistaArcade" (click)="mostrandoPistaArcade = true" class="absolute top-2 right-2 text-slate-500 hover:text-amber-400 text-xs bg-slate-800 px-2 py-1 rounded transition-colors flex items-center gap-1">
+                    💡 Pista
+                  </button>
+                </div>
+
+                <div *ngIf="modoConstructorActual === 'bloques'" class="animate-fade-in" cdkDropListGroup>
+                  
+                  <div cdkDropList 
+                       cdkDropListOrientation="mixed"
+                       [cdkDropListData]="bloquesArmados" 
+                       (cdkDropListDropped)="soltarBloque($event)"
+                       class="relative min-h-[100px] bg-slate-900/80 border-b-4 border-slate-700 rounded-t-2xl p-4 flex flex-wrap gap-2 content-start justify-start mb-8 transition-colors duration-300">
+                    
+                    <div *ngIf="bloquesArmados.length === 0" class="absolute inset-0 flex items-center justify-start p-6 pointer-events-none">
+                      <span class="text-slate-500 text-sm italic">Arrastra o toca los bloques aquí...</span>
+                    </div>
+                    
+                    <button *ngFor="let bloque of bloquesArmados" 
+                            cdkDrag
+                            (click)="!constructorResuelto ? quitarBloque(bloque) : null"
+                            class="bg-white text-slate-900 font-bold text-base md:text-lg px-3 py-1.5 md:px-4 md:py-2 rounded-lg shadow-sm cursor-grab active:cursor-grabbing hover:bg-slate-200 transition-colors transform active:scale-95 z-50">
+                      
+                      <div *cdkDragPreview class="bg-white text-slate-900 font-bold text-base md:text-lg px-3 py-1.5 md:px-4 md:py-2 rounded-lg shadow-2xl flex items-center justify-center opacity-100">
+                        {{ bloque }}
+                      </div>
+                      
+                      {{ bloque }}
+                    </button>
+                  </div>
+
+                  <div *ngIf="!constructorResuelto" 
+                       cdkDropList 
+                       cdkDropListOrientation="mixed"
+                       [cdkDropListData]="bloquesDisponibles" 
+                       (cdkDropListDropped)="soltarBloque($event)"
+                       class="flex flex-wrap gap-2 md:gap-3 justify-center animate-fade-in min-h-[60px] p-2">
+                    
+                    <button *ngFor="let bloque of bloquesDisponibles" 
+                            cdkDrag
+                            (click)="seleccionarBloque(bloque)"
+                            class="bg-slate-700 border-b-4 border-slate-900 text-white font-bold text-base md:text-lg px-3 py-1.5 md:px-4 md:py-2 rounded-lg shadow-sm cursor-grab active:cursor-grabbing hover:bg-slate-600 transition-colors active:scale-95 z-50">
+                      
+                      <div *cdkDragPreview class="bg-slate-700 border-b-4 border-slate-900 text-white font-bold text-base md:text-lg px-3 py-1.5 md:px-4 md:py-2 rounded-lg shadow-2xl flex items-center justify-center opacity-100">
+                        {{ bloque }}
+                      </div>
+
+                      {{ bloque }}
+                    </button>
+                  </div>
+                </div>
+
+                <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+                  
+                  <button *ngIf="!constructorResuelto" (click)="saltarOracion()" class="text-slate-400 hover:text-white text-sm font-bold bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl border border-slate-700 transition-colors w-full sm:w-auto">
+                    ⏭️ Saltar
+                  </button>
+
+                  <button *ngIf="!constructorResuelto" (click)="comprobarConstructor()" class="bg-sky-600 hover:bg-sky-500 text-white px-10 py-3 rounded-xl font-bold transition-all shadow-lg shadow-sky-900/50 w-full sm:w-auto active:scale-95">
+                    Comprobar Respuesta
+                  </button>
+                  
+                  <button *ngIf="constructorResuelto" (click)="cargarSiguienteOracion()" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white px-10 py-3 rounded-xl font-black transition-all shadow-lg shadow-emerald-900/50 flex items-center justify-center gap-2 animate-bounce hover:animate-none w-full sm:w-auto">
+                    Siguiente Oración ➔
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+         <div *ngIf="modoArcadeActual === 'survival'" class="animate-fade-in w-full max-w-2xl mx-auto relative z-10">
+            
+            <div class="flex justify-between items-center mb-6">
+              <button (click)="modoArcadeActual = 'menu'" class="text-slate-400 hover:text-white transition-colors text-sm font-bold bg-slate-800 px-4 py-2 rounded-xl border border-slate-700">
+                ← Abandonar
+              </button>
+              <div class="text-right">
+                <p class="text-[10px] text-red-400 font-black uppercase tracking-widest">Nivel {{ nivelSurvival }}</p>
+                <h2 class="text-xl font-black text-white">El Desafío</h2>
+              </div>
+            </div>
+
+            <div *ngIf="estadoSurvival === 'jugando'">
+              
+              <div class="flex gap-1 mb-6">
+                <div *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]" 
+                     class="h-1.5 flex-1 rounded-full transition-all duration-500"
+                     [ngClass]="rondaSurvival > i ? 'bg-red-600' : (rondaSurvival === i ? 'bg-red-400 animate-pulse shadow-[0_0_8px_rgba(248,113,113,0.8)]' : 'bg-slate-800')">
+                </div>
+              </div>
+
+              <div *ngIf="cargandoRetoSurvival" class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 flex flex-col items-center justify-center min-h-[300px]">
+                <div class="w-12 h-12 border-4 border-red-500 border-t-transparent rounded-full animate-spin mb-4 shadow-lg shadow-red-500/20"></div>
+                <p class="text-slate-300 font-bold text-center">El examinador IA está escribiendo el nivel...</p>
+              </div>
+
+              <div *ngIf="!cargandoRetoSurvival && retoActualSurvival" class="bg-slate-800 rounded-2xl p-6 md:p-8 border border-slate-700 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-slate-900 text-slate-300 border border-t-0 border-slate-700 text-[9px] font-black uppercase tracking-widest px-4 py-1 rounded-b-lg">
+                  Prueba {{ rondaSurvival }} / 10
+                </div>
+
+                <div class="mt-6 mb-8 text-center min-h-[100px] flex flex-col justify-center">
+                  <p class="text-xs text-slate-500 uppercase font-black tracking-widest mb-3">Completa la oración:</p>
+                  
+                  <p *ngIf="nivelSurvival === 1" class="text-2xl font-mono text-white leading-relaxed px-4">
+                    {{ retoActualSurvival.oracion_oculta_romaji }}
+                  </p>
+                  
+                  <p *ngIf="nivelSurvival > 1" class="text-3xl font-bold text-white leading-relaxed px-4">
+                    {{ retoActualSurvival.oracion_oculta_kanji }}
+                  </p>
+                  <p *ngIf="nivelSurvival > 1" class="text-xs text-slate-500 mt-2 font-mono italic opacity-50">{{ retoActualSurvival.oracion_oculta_romaji }}</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <button *ngFor="let opcion of opcionesSurvival" 
+                          (click)="seleccionarOpcionSurvival(opcion)"
+                          [disabled]="opcionAnimacionExito"
+                          [ngClass]="opcionAnimacionExito === opcion ? 'bg-green-600 border-green-400 scale-105 shadow-[0_0_20px_rgba(74,222,128,0.4)]' : 'bg-slate-900 hover:bg-slate-700 border-slate-600 hover:border-sky-500'"
+                          class="p-4 rounded-xl text-center transition-all transform flex flex-col items-center justify-center min-h-[80px] border shadow-sm disabled:cursor-default">
+                    
+                    <span *ngIf="nivelSurvival === 1" class="text-xl font-mono text-white font-bold">{{ opcion.romaji }}</span>
+                    
+                    <span *ngIf="nivelSurvival > 1" class="text-2xl font-bold text-white mb-1">{{ opcion.kanji }}</span>
+                    <span *ngIf="nivelSurvival > 1" class="text-xs text-slate-400 font-mono">{{ opcion.romaji }}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="estadoSurvival === 'gameover'" class="bg-red-950/40 border border-red-900/50 rounded-3xl p-8 text-center animate-fade-in mt-4 backdrop-blur-sm shadow-2xl">
+              <div class="text-6xl mb-2 animate-bounce">🩸</div>
+              <h3 class="text-3xl font-black text-red-500 mb-1 tracking-tight">¡MUERTE SÚBITA!</h3>
+              <p class="text-slate-300 mb-8 text-sm">Caíste en la prueba <span class="font-bold text-white">{{ rondaSurvival }}</span>. El examinador no perdona errores.</p>
+
+              <div class="bg-slate-900/80 rounded-2xl p-5 mb-8 text-left border border-slate-700 shadow-inner">
+                <p class="text-[10px] text-emerald-400 font-black uppercase tracking-widest mb-2 flex items-center gap-1">
+                  <span>✓</span> La respuesta correcta era:
+                </p>
+                <div class="flex items-end gap-3 mb-4">
+                  <span class="text-2xl text-white font-bold">{{ retoActualSurvival.correcta.kanji }}</span>
+                  <span class="text-sm text-slate-400 font-mono mb-1">({{ retoActualSurvival.correcta.romaji }})</span>
+                </div>
+
+                <div class="bg-slate-950/50 rounded-xl p-3 mb-4 border border-slate-800/80 shadow-inner">
+                  <p class="text-[9px] text-slate-500 font-bold uppercase tracking-widest mb-1.5">Contexto Completo:</p>
+                  
+                  <p class="text-base md:text-lg text-white font-bold mb-1.5 leading-relaxed">
+                    {{ retoActualSurvival.oracion_oculta_kanji.split('____')[0] }}<span class="text-emerald-400 bg-emerald-900/30 border-b-2 border-emerald-500 px-1 rounded">{{ retoActualSurvival.correcta.kanji }}</span>{{ retoActualSurvival.oracion_oculta_kanji.split('____')[1] }}
+                  </p>
+                  
+                  <p class="text-xs text-slate-400 italic">"{{ retoActualSurvival.traduccion_espanol }}"</p>
+                </div>
+                
+                <p class="text-sm text-red-200/90 leading-snug border-l-2 border-red-500 pl-3">
+                  <span class="font-bold text-red-400 text-xs uppercase block mb-1">El Examinador dice:</span>
+                  "{{ retoActualSurvival.explicacion }}"
+                </p>
+              </div>
+
+              <button (click)="reiniciarSurvival()" class="bg-red-600 hover:bg-red-500 text-white font-black py-3.5 px-8 rounded-xl shadow-[0_0_15px_rgba(220,38,38,0.5)] transition-all active:scale-95 w-full sm:w-auto hover:-translate-y-1">
+                Intentarlo de Nuevo
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div *ngIf="palabras.length > 0 && !jugandoArcade && repasoActivo" class="animate-fade-in">
+          
+          <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 shadow-lg mb-6 animate-fade-in">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-5">
+              <div class="flex items-center gap-3">
+                <button (click)="abandonarRepaso()" class="text-slate-400 hover:text-white transition-colors text-sm font-bold bg-slate-900 px-4 py-2 rounded-xl border border-slate-600 shadow-inner">
+                  ← Volver
+                </button>
+                <h2 class="text-xl font-black text-white flex items-center gap-2">
+                  <span class="animate-pulse">🔥</span> Entrenamiento
+                </h2>
+              </div>
+              
+              <div class="bg-slate-900 rounded-xl p-1.5 border border-slate-700 flex shadow-inner w-full md:w-auto">
+                <button (click)="modoEstudio = false; ocultarTodosLosContextos()" 
+                        [ngClass]="!modoEstudio ? 'bg-sky-600 text-white shadow-md scale-100' : 'text-slate-400 hover:text-white scale-95'" 
+                        class="flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-bold transition-all duration-300 flex justify-center items-center gap-2">
+                  📝 Modo Lista
+                </button>
+                <button (click)="modoEstudio = true; ocultarTodosLosContextos()" 
+                        [ngClass]="modoEstudio ? 'bg-indigo-600 text-white shadow-md scale-100' : 'text-slate-400 hover:text-white scale-95'" 
+                        class="flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-bold transition-all duration-300 flex justify-center items-center gap-2">
+                  🧠 Modo Estudio
+                </button>
+              </div>
+            </div>
+
+            <div class="bg-slate-900/50 rounded-xl p-4 border border-slate-700/50 flex flex-col sm:flex-row gap-4 items-center">
+              <div class="text-4xl hidden sm:block opacity-80">{{ modoEstudio ? '💡' : '📖' }}</div>
+              <div class="text-center sm:text-left">
+                <h3 class="font-black text-sm uppercase tracking-widest mb-1" [ngClass]="modoEstudio ? 'text-indigo-400' : 'text-sky-400'">
+                  {{ modoEstudio ? 'Ponte a prueba' : 'Familiarízate con las palabras' }}
+                </h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  {{ modoEstudio 
+                    ? 'Lee el japonés e intenta recordar su significado. Toca la tarjeta para voltearla y calificar qué tan fácil te resultó recordarla.' 
+                    : 'Repasa tranquilamente. Toca cualquier tarjeta para escuchar su pronunciación y lee los ejemplos generados por IA.' }}
+                </p>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div *ngIf="modoEstudio" class="bg-indigo-900/50 border border-indigo-500/50 text-indigo-200 px-4 py-2 rounded-lg text-sm mb-6 flex items-center gap-2 shadow-inner">
+            <span class="animate-pulse">💡</span> <strong>Tip:</strong> Escribe la pronunciación o el significado para voltear la tarjeta.
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+            <div *ngFor="let palabra of palabras" class="perspectiva h-[22rem] md:h-[26rem] cursor-pointer relative" (click)="interactuarTarjeta(palabra)">
+              <div *ngIf="modoEstudio && !palabra.revelada" class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-xl blur opacity-25 animate-pulse z-0"></div>
+
+              <div class="relative w-full h-full transition-transform duration-500 preservar-3d z-10" [ngClass]="{'rotar-y-180': palabra.volteada && modoEstudio}">
+
+                <div class="absolute w-full h-full bg-slate-800 p-4 rounded-xl text-center flex flex-col items-center justify-start pt-6 ocultar-reverso hover:bg-slate-700 transition shadow-lg border border-slate-600 overflow-hidden" [ngClass]="{'pointer-events-none': palabra.volteada && modoEstudio}">
+                  
+                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-sky-600 text-white text-[9px] font-black uppercase tracking-widest px-3 py-0.5 rounded-b-lg shadow-sm z-20">
+                    Repaso Hoy
+                  </div>
+
+                  <button (click)="eliminarFlashcard(palabra.japones, $event)" class="absolute top-2 left-3 text-slate-500 hover:text-red-500 transition text-sm z-10"> ✕ </button>
+                  <div class="absolute top-2 right-3 text-slate-400 text-xs opacity-50">🔊</div>
+                  
+                  <div class="mt-2 shrink-0">
+                    <ruby class="text-4xl font-bold mb-1 block text-white"> {{ palabra.japones }}
+                      <rt class="text-sm text-sky-300 font-normal">{{ palabra.furigana }}</rt>
+                    </ruby>
+                    <p *ngIf="!modoEstudio" class="text-sky-400 font-semibold text-sm mt-1 mb-1">{{ palabra.espanol }}</p>
+                    <p *ngIf="!modoEstudio" class="text-slate-500 text-xs italic opacity-80 mb-2">{{ palabra.romaji }}</p>
+                  </div>
+
+                  <button (click)="$event.stopPropagation(); pedirEjemploIA(palabra, $event)" 
+                          *ngIf="!palabra.cargandoIA && !palabra.ejemploIA" 
+                          class="text-[10px] bg-slate-900 hover:bg-indigo-600 border border-slate-700 text-slate-400 hover:text-white px-3 py-1.5 rounded-full mt-auto mb-2 transition-all flex items-center gap-1 shadow-md w-fit mx-auto">
+                    ✨ Generar contexto
+                  </button>
+
+                  <div *ngIf="palabra.cargandoIA" class="text-xs text-indigo-400 mt-auto mb-4 animate-pulse flex flex-col items-center">
+                    <div class="w-4 h-4 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin mb-1"></div>
+                    Pensando...
+                  </div>
+
+                  <div *ngIf="palabra.ejemploIA" 
+                       (click)="$event.stopPropagation()"
+                       class="mt-auto mb-1 p-3 bg-slate-900/60 rounded-lg border border-slate-700/50 w-full text-left relative animate-fade-in shadow-inner flex flex-col justify-start grow-0 overflow-y-auto max-h-[140px] md:max-h-[190px] z-20 caja-scroll">
+                    <p class="text-[9px] text-slate-500 uppercase font-black tracking-widest mb-1.5">Ejemplo de uso:</p>
+                    <p class="text-sm font-bold text-sky-200 leading-tight mb-1">{{ palabra.ejemploIA.oracion_japones }}</p>
+                    <p class="text-[10px] text-slate-400 mb-0.5">{{ palabra.ejemploIA.oracion_furigana }}</p>
+                    
+                    <p class="text-[10px] text-emerald-400/80 font-mono italic mb-2">{{ palabra.ejemploIA.oracion_romaji }}</p>
+                    
+                    <p class="text-[11px] text-slate-300 italic leading-snug mb-2">"{{ palabra.ejemploIA.traduccion_espanol }}"</p>
+                    
+                    <div *ngIf="palabra.ejemploIA.explicacion_gramatical" class="mt-1 pt-2 border-t border-slate-700/50">
+                      <p class="text-[9px] text-indigo-400 uppercase font-bold flex items-center gap-1 mb-0.5">
+                        <span class="text-xs">💡</span> Nota Gramatical
+                      </p>
+                      <p class="text-[10px] text-slate-400 leading-tight">{{ palabra.ejemploIA.explicacion_gramatical }}</p>
+                    </div>
+                  </div>
+
+                </div>
+
+              <div class="absolute w-full h-full bg-sky-900 p-4 rounded-xl text-center flex flex-col items-center justify-center ocultar-reverso rotar-y-180 shadow-lg border border-sky-400">
+  
+                <div *ngIf="!palabra.revelada" class="w-full flex flex-col items-center">
+                  <p class="text-sky-200 text-xs mb-2 uppercase tracking-widest font-bold">Escribe en japonés</p>
+                  <input [(ngModel)]="palabra.inputEstudio" 
+                        (click)="$event.stopPropagation()"
+                        (keyup.enter)="verificarRespuesta(palabra)"
+                        type="text" 
+                        placeholder="..." 
+                        class="w-full bg-slate-900/50 border-2 border-sky-500 rounded-lg p-2 text-center text-white text-xl outline-none mb-3">
+                  
+                  <button (click)="verificarRespuesta(palabra); $event.stopPropagation()" 
+                          class="bg-sky-500 hover:bg-sky-400 text-white px-4 py-1 rounded-full font-bold text-sm transition shadow-lg">
+                    Comprobar
+                  </button>
+                  <span (click)="palabra.revelada = true; $event.stopPropagation()" 
+                        class="text-sky-400/50 text-[10px] mt-4 hover:text-sky-300 cursor-pointer italic">
+                    No la recuerdo, mostrar respuesta
+                  </span>
+                </div>
+
+                <div *ngIf="palabra.revelada" class="animate-fade-in w-full">
+                  <p class="text-white text-xl font-bold leading-tight">{{ palabra.espanol }}</p>
+                  
+                  <div class="my-3">
+                    <p class="text-sky-300 text-sm mb-0.5">{{ palabra.japones }} ({{ palabra.furigana }})</p>
+                    <p class="text-sky-200/70 text-xs italic font-mono">{{ palabra.romaji }}</p>
+                  </div>
+                  
+                  <div *ngIf="!palabra.repasada" class="flex justify-center gap-2 z-10 w-full">
+                    <button (click)="calificarTarjeta(palabra, 0, $event)" class="flex-1 bg-red-500 hover:bg-red-400 text-white text-xs py-2 rounded font-bold shadow-md">Mal</button>
+                    <button (click)="calificarTarjeta(palabra, 1, $event)" class="flex-1 bg-yellow-400 hover:bg-yellow-300 text-slate-900 text-xs py-2 rounded font-bold shadow-md">Bien</button>
+                    <button (click)="calificarTarjeta(palabra, 2, $event)" class="flex-1 bg-green-500 hover:bg-green-400 text-white text-xs py-2 rounded font-bold shadow-md">Fácil</button>
+                  </div>
+                  
+                  <div *ngIf="palabra.repasada" class="mt-3 text-sky-100 text-sm font-bold bg-sky-700/50 px-3 py-1 rounded-full animate-pulse">
+                    ¡Registrado! ✓
+                  </div>
+                  <p *ngIf="!palabra.repasada" class="text-sky-200 text-[10px] mt-2 opacity-70">↻ Toca para voltear</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        </div>
+    </div>
+    
+    <div *ngIf="mostrandoPerfil" class="animate-fade-in bg-slate-800 p-8 rounded-xl shadow-xl border border-slate-700 max-w-2xl mx-auto">
+        
+      <div class="flex items-center gap-4 mb-8 border-b border-slate-700 pb-6">
+        <div class="w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center text-3xl font-bold shadow-lg">
+          {{ usuarioActivo.charAt(0).toUpperCase() }}
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-white">Hola, {{ usuarioActivo }}</h2>
+          <p class="text-slate-400 text-sm">Gestiona la seguridad de tu cuenta</p>
+        </div>
+      </div>
+
+      <div *ngIf="mensajePerfil" class="p-4 mb-6 rounded-lg text-sm font-bold animate-pulse" [ngClass]="tipoMensajePerfil === 'exito' ? 'bg-green-900/50 text-green-400 border border-green-800' : 'bg-red-900/50 text-red-400 border border-red-800'">
+        {{ mensajePerfil }}
+      </div>
+
+      <div class="mb-10">
+        <h3 class="text-lg font-bold text-sky-400 mb-4 flex items-center gap-2">🔒 Cambiar Contraseña</h3>
+        <div class="grid gap-4">
+          <input [(ngModel)]="inputPassActual" type="password" placeholder="Contraseña actual" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 focus:ring-2 focus:ring-sky-500 outline-none">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input [(ngModel)]="inputPassNueva" type="password" placeholder="Nueva contraseña" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 focus:ring-2 focus:ring-sky-500 outline-none">
+            <input [(ngModel)]="inputPassConfirmar" type="password" placeholder="Confirmar nueva" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 focus:ring-2 focus:ring-sky-500 outline-none">
+          </div>
+          <button (click)="actualizarPassword()" class="mt-2 bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-6 rounded-lg transition-all shadow-md self-start border border-slate-600">
+            Actualizar Contraseña
+          </button>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-700 pt-8 mt-8">
+        <h3 class="text-lg font-bold text-red-500 mb-2 flex items-center gap-2">⚠️ Zona de Peligro</h3>
+        <p class="text-slate-400 text-sm mb-4">Eliminar tu cuenta es una acción irreversible. Se borrarán todas tus flashcards y tu progreso.</p>
+          
+        <div class="flex flex-col sm:flex-row gap-4 items-center bg-red-950/20 p-4 rounded-lg border border-red-900/50">
+          <input [(ngModel)]="inputPassEliminar" type="password" placeholder="Ingresa tu contraseña para confirmar" class="w-full sm:w-2/3 bg-slate-900 border border-red-800/50 rounded-lg p-3 focus:ring-2 focus:ring-red-500 outline-none">
+          <button (click)="borrarCuenta()" class="w-full sm:w-1/3 bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-lg transition-all shadow-lg flex justify-center items-center gap-2">
+            🗑️ Eliminar Cuenta
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="mostrandoBiblioteca" class="animate-fade-in bg-slate-800 p-6 sm:p-8 rounded-xl shadow-xl border border-slate-700 max-w-5xl mx-auto mb-8">
+        
+      <div class="flex justify-between items-center mb-8 border-b border-slate-700 pb-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">📚 Mi Colección</h2>
+          <p class="text-slate-400 text-sm mt-1">Vocabulario ordenado inteligentemente por IA.</p>
+        </div>
+        <div class="bg-slate-900 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-sky-900/50 text-center">
+          <p class="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">Total</p>
+          <p class="text-xl sm:text-2xl font-black text-sky-400">{{ bibliotecaCompleta.length }}</p>
+        </div>
+      </div>
+
+      <div *ngIf="cargando" class="flex justify-center my-12">
+        <div class="w-10 h-10 border-4 border-sky-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+
+      <div *ngIf="!cargando && !mazoActivo" class="animate-fade-in">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          
+          <button *ngFor="let mazo of mazos" (click)="abrirMazo(mazo)" class="group bg-slate-900 border border-slate-700 hover:border-sky-500 rounded-2xl p-5 text-left transition-all hover:-translate-y-1 hover:shadow-lg relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-slate-800 text-sky-400 text-xs font-black px-3 py-1 rounded-bl-xl z-10">
+              {{ mazo.palabras.length }} <span class="text-slate-500 font-normal hidden sm:inline">tarjetas</span>
+            </div>
+
+            <div class="text-4xl mb-3 mt-2 group-hover:scale-110 transition-transform origin-left">{{ mazo.icono }}</div>
+            <h3 class="text-white font-bold text-lg leading-tight mb-1 pr-8">{{ mazo.nombre }}</h3>
+            
+            <div class="w-full flex h-1.5 rounded-full mt-4 overflow-hidden bg-slate-800">
+              <div class="bg-green-500 h-full" [style.width.%]="(mazo.palabras | keyvalue).length > 0 ? 30 : 0"></div>
+              <div class="bg-red-500 h-full" [style.width.%]="70"></div>
+            </div>
+          </button>
+
+        </div>
+      </div>
+
+      <div *ngIf="!cargando && mazoActivo" class="animate-fade-in">
+        
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+          
+          <div class="flex items-center gap-3">
+            <button (click)="cerrarMazo()" class="text-slate-400 hover:text-white bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-600 transition-colors text-sm font-bold flex items-center gap-2">
+              ← <span class="hidden sm:inline">Volver</span>
+            </button>
+            <h3 class="text-lg sm:text-xl font-black text-sky-400 line-clamp-1">{{ mazoActivo.icono }} {{ mazoActivo.nombre }}</h3>
+          </div>
+          
+          <div class="flex items-center gap-2 w-full md:w-auto">
+            <div class="relative w-full md:w-64">
+              <span class="absolute left-3 top-1.5 text-slate-500">🔍</span>
+              <input [(ngModel)]="busquedaBiblioteca" type="text" placeholder="Buscar palabra..." class="w-full bg-slate-900 border border-slate-600 rounded-lg py-1.5 pl-8 pr-3 text-sm focus:ring-1 focus:ring-sky-500 outline-none">
+            </div>
+            
+            <div class="bg-slate-900 rounded-lg p-1 border border-slate-700 flex shrink-0">
+              <button (click)="vistaBiblioteca = 'grid'" [ngClass]="vistaBiblioteca === 'grid' ? 'bg-sky-600 text-white' : 'text-slate-400'" class="px-2 py-1 rounded text-sm transition-colors" title="Vista Cuadrícula">🪟</button>
+              <button (click)="vistaBiblioteca = 'lista'" [ngClass]="vistaBiblioteca === 'lista' ? 'bg-sky-600 text-white' : 'text-slate-400'" class="px-2 py-1 rounded text-sm transition-colors" title="Vista Compacta">📄</button>
+            </div>
+          </div>
+        </div>
+
+        <p *ngIf="palabrasMazoFiltradas.length === 0" class="text-center text-slate-500 py-8">No se encontraron palabras con esa búsqueda.</p>
+
+        <div *ngIf="vistaBiblioteca === 'grid'" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in">
+          <div *ngFor="let item of palabrasMazoFiltradas" class="bg-slate-900 p-4 rounded-xl border border-slate-700 hover:border-sky-500/50 transition-colors flex flex-col justify-between h-full">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <ruby class="text-2xl font-bold text-white">
+                  {{ item.japones }}
+                  <rt class="text-xs text-sky-400">{{ item.furigana }}</rt>
+                </ruby>
+                
+                <div class="flex items-center gap-3">
+                  <button (click)="eliminarFlashcard(item.japones, $event)" class="text-slate-600 hover:text-red-500 transition-colors text-lg" title="Eliminar tarjeta">✕</button>
+                  <div class="w-3 h-3 rounded-full shadow-sm" [ngClass]="{'bg-red-500': !item.intervalo || item.intervalo === 0, 'bg-yellow-400': item.intervalo > 0 && item.intervalo < 21, 'bg-green-500': item.intervalo >= 21}"></div>
+                </div>
+              </div>
+              <p class="text-slate-300 text-sm font-semibold mb-1">{{ item.espanol }}</p>
+              <p class="text-slate-500 text-xs italic opacity-70 border-b border-slate-800 pb-2 mb-2">{{ item.romaji }}</p>
+            </div>
+            <div class="flex justify-between items-center mt-2 bg-slate-800/50 rounded p-2">
+              <span class="text-[10px] text-slate-400 font-mono">SRS Lvl: {{ item.intervalo || 0 }}</span>
+              <span class="text-[10px] px-2 py-1 rounded font-bold" [ngClass]="{'bg-sky-900/50 text-sky-300': item.proximo_repaso, 'bg-slate-700 text-slate-500': !item.proximo_repaso}">
+                Próx: {{ item.proximo_repaso ? item.proximo_repaso : 'Hoy' }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="vistaBiblioteca === 'lista'" class="flex flex-col gap-2 animate-fade-in">
+          <div *ngFor="let item of palabrasMazoFiltradas" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-sky-500/50 transition-colors flex justify-between items-center">
+            
+            <div class="flex items-center gap-4">
+              <div class="w-16 text-center">
+                <ruby class="text-xl font-bold text-white">{{ item.japones }}<rt class="text-[10px] text-sky-400">{{ item.furigana }}</rt></ruby>
+              </div>
+              <div class="border-l border-slate-700 pl-4">
+                <p class="text-slate-300 text-sm font-bold leading-tight">{{ item.espanol }}</p>
+                <p class="text-slate-500 text-xs italic">{{ item.romaji }}</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="text-right flex flex-col items-end">
+                <div class="w-2.5 h-2.5 rounded-full mb-1" [ngClass]="{'bg-red-500': !item.intervalo || item.intervalo === 0, 'bg-yellow-400': item.intervalo > 0 && item.intervalo < 21, 'bg-green-500': item.intervalo >= 21}"></div>
+                <span class="text-[9px] text-slate-500 font-mono">Lvl {{ item.intervalo || 0 }}</span>
+              </div>
+              
+              <button (click)="eliminarFlashcard(item.japones, $event)" class="text-slate-600 hover:text-red-500 transition-colors text-xl border-l border-slate-700 pl-4 py-2" title="Eliminar tarjeta">
+                ✕
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="mostrandoModalBorrar" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex justify-center items-center p-4 animate-fade-in">
+    <div class="bg-slate-900 border border-red-900/50 p-8 rounded-2xl shadow-2xl max-w-md w-full text-center relative overflow-hidden">
+      
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-rose-600"></div>
+      
+      <div class="w-16 h-16 bg-red-950/40 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-900/50 text-3xl">
+        ⚠️
+      </div>
+      
+      <h3 class="text-2xl font-black text-white mb-2">¿Estás completamente seguro?</h3>
+      <p class="text-slate-400 text-sm mb-8">Esta acción es <span class="text-red-400 font-bold uppercase tracking-wider">irreversible</span>. Perderás todas tus flashcards, tu historial de repaso y tu gráfica de progreso para siempre.</p>
+      
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <button (click)="mostrandoModalBorrar = false" class="px-6 py-3 rounded-lg font-bold transition-all border border-slate-600 text-slate-300 hover:bg-slate-800 w-full sm:w-1/2">
+          Cancelar
+        </button>
+        <button (click)="ejecutarBorradoDefinitivo()" class="px-6 py-3 rounded-lg font-bold transition-all bg-red-600 hover:bg-red-500 text-white shadow-lg shadow-red-900/50 w-full sm:w-1/2 flex justify-center items-center gap-2">
+          Sí, eliminar
+        </button>
       </div>
     </div>
   </div>
-</main>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet></router-outlet>
+  <div *ngIf="toastMensaje" class="fixed bottom-8 right-8 px-6 py-4 rounded-xl shadow-2xl z-50 animate-fade-in flex items-center gap-3 font-bold border max-w-sm"
+       [ngClass]="{
+         'bg-red-900/90 text-red-200 border-red-700': toastTipo === 'error',
+         'bg-green-900/90 text-green-200 border-green-700': toastTipo === 'exito',
+         'bg-sky-900/90 text-sky-200 border-sky-700': toastTipo === 'info'
+       }">
+    <span class="text-xl">{{ toastTipo === 'error' ? '❌' : (toastTipo === 'exito' ? '✅' : '💡') }}</span>
+    <p class="text-sm leading-tight">{{ toastMensaje }}</p>
+  </div>
+</div>

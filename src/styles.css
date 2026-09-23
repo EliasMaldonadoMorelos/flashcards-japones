@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.perspectiva { perspective: 1000px; }
+.preservar-3d { transform-style: preserve-3d; }
+.ocultar-reverso { backface-visibility: hidden; }
+.rotar-y-180 { transform: rotateY(180deg); }
+/* ==========================================================================
+   ESTILOS PARA EL DRAG & DROP (ANGULAR CDK)
+   ========================================================================== */
+.cdk-drag {
+  touch-action: none; 
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* 1. El bloque que traes flotando con el mouse */
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 0.5rem; 
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  opacity: 0.95;
+  transform: scale(1.05); /* Un ligero zoom para que se vea que lo levantaste */
+  cursor: grabbing !important;
+  z-index: 9999 !important; /* Asegura que pase por encima de todo */
+}
+
+/* 2. El hueco (placeholder) donde va a caer el bloque */
+.cdk-drag-placeholder {
+  opacity: 0.4;
+  border: 2px dashed #38bdf8; /* Un borde punteado azul clarito (sky-400) */
+  background-color: rgba(14, 165, 233, 0.1);
+  border-radius: 0.5rem;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  min-width: 60px; /* Para que el hueco no se aplaste si el texto es corto */
+}
+
+/* 3. La animación de deslizamiento cuando sueltas el bloque */
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* 4. Hace que los bloques estáticos se hagan a un lado suavemente */
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+/* ==========================================
+   SCROLLBAR PERSONALIZADO Y ELEGANTE
+   ========================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5); /* Color slate-900 */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3); /* Color sky-400 pero sutil */
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.6); /* Brilla al pasar el mouse */
+}
+
+/* Esta clase oculta el scrollbar por completo donde lo necesites */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* ==========================================
+   FORZAR SCROLL INTERNO EN MÓVILES
+   ========================================== */
+.caja-scroll {
+  touch-action: pan-y !important;
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important; /* 👈 Esta es la magia para celulares */
+}
